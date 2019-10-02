@@ -1,0 +1,14 @@
+{- The binary Ackermann function. It runs for a long time, particularly for m >= 4 -}
+
+let ackermann : Natural -> Natural -> Natural =
+    \(m : Natural) ->
+    Natural/fold m (Natural -> Natural)
+    (\(f_m1 : Natural -> Natural) ->
+     \(n : Natural) ->
+        Natural/fold n Natural
+        (\(f_m1_n1 : Natural) -> f_m1 f_m1_n1)
+        (f_m1 1))
+    (\(n : Natural) -> 1 + n)
+
+in ackermann
+
